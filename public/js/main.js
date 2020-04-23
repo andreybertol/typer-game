@@ -37,10 +37,8 @@ function inicializaCronometro() {
             $('#tempo-digitacao').text(tempoRestante);
 
             if (tempoRestante < 1) {
-                campo.attr('disabled', true);
                 clearInterval(id)
-                $('#botao-reiniciar').attr('disabled', false);
-                campo.addClass('campo-desativado');
+                finalizaJogo();
             }
         }, 1000);
     });
@@ -67,4 +65,40 @@ function inicializaMarcadores() {
         campo.toggleClass('borda-verde', ehCorreto);
         campo.toggleClass('borda-vermelha', !ehCorreto);
     });
+}
+
+function finalizaJogo() {
+    campo.attr('disabled', true);
+    $('#botao-reiniciar').attr('disabled', false);
+    campo.addClass('campo-desativado');
+    inserePlacar();
+}
+
+function removeLinha(event) {
+    event.preventDefault();
+    $(this).parent().parent().remove();
+}
+
+function inserePlacar() {
+    let corpoTabela = $('.placar').find('tbody');
+    let usuario = 'Perseu';
+    let numPalavras = $('#contador-palavras').text();
+
+    let linha = novaLinha(usuario, numPalavras);
+    linha.find('.botao-remover').click(removeLinha);
+
+    corpoTabela.prepend(linha);
+}
+
+function novaLinha(usuario, numPalavras) {
+
+    let linha = $('<tr>');
+    let colunaUsuario = $('<td>').text(usuario);
+    let colunaPalavras = $('<td>').text(numPalavras);
+    let colunaRemover = $('<td>');
+    let link = $('<a>').addClass('botao-remover').attr('href', '#');
+    let icone = $('<i>').addClass('small').addClass('material-icons').text('delete');
+
+    colunaRemover.append(link.append(icone));
+    return linha.append(colunaUsuario).append(colunaPalavras).append(colunaRemover);
 }
