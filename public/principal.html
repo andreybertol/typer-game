@@ -3,16 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Typer Game</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<h1>Typer Game</h1>
-<p class="frase">Frase com quatro palavras</p>
 
-<ul class="informacoes">
-    <li><span id="tamanho-frase"></span> palavras</li>
-    <li>10 segundos</li>
-</ul>
+<div class="container">
+    <ul class="informacoes center">
+        <h1>Typer Game</h1>
+        <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium beatae, corporis cumque, delectus deserunt dolorem doloribus impedit ipsam modi molestiae molestias mollitia perferendis provident sint totam vero voluptatem voluptates?</p>
 
+        <li>
+            <i class="small material-icons centralizar">query_builder</i>
+            <span id="tempo-digitacao">10</span> segundos
+        </li>
+    </ul>
+
+    <textarea cols="40" rows="8" class="campo-digitacao"></textarea>
+
+    <div class="botoes">
+        <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
+            <i class="material-icons">restore</i>
+        </a>
+    </div>
+
+    <ul class="center">
+        <li>
+            <span id="contador-char">0</span> caracteres
+        </li>
+        <li>
+            <span id="contador-palavras">0</span> palavras
+        </li>
+    </ul>
+</div>
+
+<!--scripts-->
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
 
