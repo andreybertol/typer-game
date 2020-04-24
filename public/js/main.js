@@ -29,8 +29,8 @@ function inicializaContadores() {
 }
 
 function inicializaCronometro() {
-    let tempoRestante = $('#tempo-digitacao').text();
     campo.one('focus', () => {
+        let tempoRestante = $('#tempo-digitacao').text();
         $('#botao-reiniciar').attr('disabled', true);
         let id = setInterval(() => {
             tempoRestante--;
@@ -57,8 +57,8 @@ function reiniciaJogo() {
 }
 
 function inicializaMarcadores() {
-    let frase = $('.frase').text();
     campo.on('input', () => {
+        let frase = $('.frase').text();
         let digitado = campo.val();
         let ehCorreto = frase.startsWith(digitado);
 
@@ -74,31 +74,7 @@ function finalizaJogo() {
     inserePlacar();
 }
 
-function removeLinha(event) {
-    event.preventDefault();
-    $(this).parent().parent().remove();
-}
-
-function inserePlacar() {
-    let corpoTabela = $('.placar').find('tbody');
-    let usuario = 'Perseu';
-    let numPalavras = $('#contador-palavras').text();
-
-    let linha = novaLinha(usuario, numPalavras);
-    linha.find('.botao-remover').click(removeLinha);
-
-    corpoTabela.prepend(linha);
-}
-
-function novaLinha(usuario, numPalavras) {
-
-    let linha = $('<tr>');
-    let colunaUsuario = $('<td>').text(usuario);
-    let colunaPalavras = $('<td>').text(numPalavras);
-    let colunaRemover = $('<td>');
-    let link = $('<a>').addClass('botao-remover').attr('href', '#');
-    let icone = $('<i>').addClass('small').addClass('material-icons').text('delete');
-
-    colunaRemover.append(link.append(icone));
-    return linha.append(colunaUsuario).append(colunaPalavras).append(colunaRemover);
+function atualizaTempoInicial(tempo){
+    tempoInicial = tempo;
+    $('#tempo-digitacao').text(tempo);
 }

@@ -13,6 +13,11 @@
     <h1 class="center">Typer Game</h1>
     <p class="frase">Teste borsa</p>
 
+    <div class="center">
+        <img src="img/spinner.gif" alt="Spinner" id="spinner">
+        <p id="erro">Ocorreu um erro, por favor tente novamente</p>
+    </div>
+
     <ul class="informacoes center">
         <li>
             <i class="small material-icons centralizar">description</i>
@@ -28,9 +33,26 @@
     <textarea cols="40" rows="8" class="campo-digitacao"></textarea>
 
     <div class="botoes">
+        <!--  botão reiniciar  -->
         <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
             <i class="material-icons">restore</i>
         </a>
+
+        <!--  botão placar  -->
+        <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
+            <i class="material-icons">assignment</i>
+        </a>
+
+        <!--  botão frase aleatoria -->
+        <a id="botao-frase" class="btn-floating btn-large waves-effect waves-light blue">
+            <i class="material-icons">shuffle</i>
+        </a>
+
+        <!--   botao frase por id    -->
+        <a id="botao-frase-id" class="btn-floating btn-large waves-effect waves-light cyan">
+            <i class="material-icons">repeat_one</i>
+        </a>
+        <input type="number" min="0" id="frase-id">
     </div>
 
     <ul class="center">
@@ -40,27 +62,29 @@
         <li>
             <span id="contador-palavras">0</span> palavras
         </li>
-
-        <section class="placar">
-            <h3 class="center">Placar</h3>
-            <table class="centered bordered">
-                <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Nº Palavras</th>
-                    <th>Remover</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
     </ul>
+
+    <section class="placar">
+        <h3 class="center">Placar</h3>
+        <table class="centered bordered">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nº Palavras</th>
+                <th>Remover</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
 </div>
 
 <!--scripts-->
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
+<script src="js/placar.js"></script>
+<script src="js/frase.js"></script>
 
 </body>
 </html>
